@@ -1,5 +1,10 @@
+import 'package:app_barrial_automatas/screens/HomeScreen.dart';
+import 'package:app_barrial_automatas/shared/themes/colors.dart';
+import 'package:app_barrial_automatas/shared/themes/textTheme.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
+
+import 'chat.dart';
 
 
 
@@ -10,221 +15,196 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  String _email = 'testlogin@gmail.com';
+  String _password = 'jossue123';
   @override
   Widget build(BuildContext context) {
-    // Figma Flutter Generator LoginScreen - FRAME
-
-    return Container(
-        width: 414,
-        height: 896,
-        decoration: BoxDecoration(
-          color: Color.fromRGBO(56, 56, 56, 1),
+    final size = MediaQuery.of(context).size;
+    return SafeArea(
+      
+      child: Scaffold(
+        backgroundColor: Colors.black,
+        ///Stack para apilar el background y luego el cuerpo de la pantalla
+        body: _loginBody(size, context),
+            ///contiene todo el cuerpo de la pantalla, se envía el size y el context
+            ///para poder controlar varios tamaños de dispositivos y controlar
+            ///la fuente
+            
+          
         ),
-        child: Stack(children: <Widget>[
-          Positioned(
-              top: 208,
-              left: 43,
-              child: Text(
-                'Inicio de sesión',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    color: Color.fromRGBO(255, 255, 255, 1),
-                    fontFamily: 'Bebas Neue',
-                    fontSize: 64,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1),
-              )),
-          Positioned(
-              top: 394,
-              left: 79,
-              child: Container(
-                  width: 256,
-                  height: 40,
-                  child: Stack(children: <Widget>[
-                    Positioned(
-                        top: 0,
-                        left: 0,
-                        child: Container(
-                            width: 256,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(5),
-                                topRight: Radius.circular(5),
-                                bottomLeft: Radius.circular(5),
-                                bottomRight: Radius.circular(5),
-                              ),
-                              color: Color.fromRGBO(0, 0, 0, 1),
-                            ))),
-                    Positioned(
-                        top: 8,
-                        left: 16,
-                        child: Text(
-                          'USERNAME',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Color.fromRGBO(255, 255, 255, 1),
-                              fontFamily: 'Comfortaa',
-                              fontSize: 22,
-                              letterSpacing:
-                                  0 /*percentages not used in flutter. defaulting to zero*/,
-                              fontWeight: FontWeight.normal,
-                              height: 1),
-                        )),
-                  ]))),
-          Positioned(
-              top: 522,
-              left: 79,
-              child: Container(
-                  width: 256,
-                  height: 40,
-                  child: Stack(children: <Widget>[
-                    Positioned(
-                        top: 0,
-                        left: 0,
-                        child: Container(
-                            width: 256,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(5),
-                                topRight: Radius.circular(5),
-                                bottomLeft: Radius.circular(5),
-                                bottomRight: Radius.circular(5),
-                              ),
-                              color: Color.fromRGBO(0, 0, 0, 1),
-                            ))),
-                    Positioned(
-                        top: 8,
-                        left: 16,
-                        child: Text(
-                          'PASSWORD',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Color.fromRGBO(255, 255, 255, 1),
-                              fontFamily: 'Comfortaa',
-                              fontSize: 22,
-                              letterSpacing:
-                                  0 /*percentages not used in flutter. defaulting to zero*/,
-                              fontWeight: FontWeight.normal,
-                              height: 1),
-                        )),
-                  ]))),
-          Positioned(
-              top: 692,
-              left: 79,
-              child: Container(
-                  width: 256,
-                  height: 40,
-                  child: Stack(children: <Widget>[
-                    Positioned(
-                        top: 0,
-                        left: 0,
-                        child: Container(
-                            width: 256,
-                            height: 40,
-                            child: Stack(children: <Widget>[
-                              Positioned(
-                                  top: 0,
-                                  left: 0,
-                                  child: Container(
-                                      width: 256,
-                                      height: 40,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(5),
-                                          topRight: Radius.circular(5),
-                                          bottomLeft: Radius.circular(5),
-                                          bottomRight: Radius.circular(5),
-                                        ),
-                                        color: Color.fromRGBO(255, 142, 0, 1),
-                                      ))),
-                              Positioned(
-                                  top: 7,
-                                  left: 81,
-                                  child: Text(
-                                    'Ingresar',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: Color.fromRGBO(255, 255, 255, 1),
-                                        fontFamily: 'Comfortaa',
-                                        fontSize: 22,
-                                        letterSpacing:
-                                            0 /*percentages not used in flutter. defaulting to zero*/,
-                                        fontWeight: FontWeight.normal,
-                                        height: 1),
-                                  )),
-                            ]))),
-                  ]))),
-          Positioned(
-              top: 330,
-              left: 79,
-              child: Text(
-                'INGRESE EL USUARIO',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    color: Color.fromRGBO(255, 142, 0, 1),
-                    fontFamily: 'Comfortaa',
-                    fontSize: 22,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1),
-              )),
-          Positioned(
-              top: 466,
-              left: 50,
-              child: Text(
-                'INGRESE LA CONTRASEÑA',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    color: Color.fromRGBO(255, 142, 0, 1),
-                    fontFamily: 'Comfortaa',
-                    fontSize: 22,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1),
-              )),
-          Positioned(
-              top: 365.5,
-              left: 54,
-              child: Transform.rotate(
-                angle: 1.4033419209422001e-14 * (math.pi / 180),
-                child: Spacer(),
-              )),
-          Positioned(
-              top: 582,
-              left: 116,
-              child: Text(
-                '¿No tienes Cuenta?',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    color: Color.fromRGBO(255, 255, 255, 1),
-                    fontFamily: 'Comfortaa',
-                    fontSize: 18,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1),
-              )),
-          Positioned(
-              top: 617,
-              left: 136,
-              child: Text(
-                'Registrate Aquí',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    color: Color.fromRGBO(255, 255, 255, 1),
-                    fontFamily: 'Comfortaa',
-                    fontSize: 18,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1),
-              )),
-        ]));
+      );
+    
+  }
+  _loginBody(Size size, BuildContext context) {
+    final TextTheme textTheme = Theme.of(context).textTheme;
+    return ListView(
+      padding:
+          EdgeInsets.symmetric(horizontal: size.width * 0.08, vertical: 64),
+      children: [
+        /// app logo
+        SizedBox(
+            height: 150,
+          ),
+        /// App Title
+        Padding(
+          padding: const EdgeInsets.only(bottom: 32),
+          child: Text(
+            'Inicio de sesión'.toUpperCase(),
+            style: bebasNeueFont.headline4,
+            textAlign: TextAlign.center,
+          ),
+        ),
+
+        
+
+          /// formulario (falta aplicar backend)
+          _loginForm(context),
+        ],
+      
+    );
+  }
+   ///Formulario de login
+  _loginForm(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [
+          
+          Text(
+            'INGRESE EL USUARIO',
+            style: bebasNeueFont.headline6.apply(fontSizeFactor: 1.3,color: ColorsApp.primaryColor),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          _userField(context),
+          SizedBox(
+            height: 35,
+          ),
+          Text(
+            'INGRESE LA CONTRASEÑA',
+            style: bebasNeueFont.headline6.apply(fontSizeFactor: 1.3,color: ColorsApp.primaryColor),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          _passwordField(context),
+          SizedBox(
+            height: 15,
+          ),
+          _loginButton(context),
+          _registerText(context),
+          SizedBox(
+            height: 10,
+          ),
+        ],
+      ),
+    );
+  }
+
+  TextButton _registerText(BuildContext context) {
+    return TextButton(
+      onPressed: () {
+        print('texto de registro presionado');
+      },
+      style: ButtonStyle(overlayColor: MaterialStateProperty.all(Colors.red)),
+      child: RichText(
+        text: TextSpan(
+          text: '¿No tienes cuenta? Regístrate ',
+          style: bebasNeueFont.headline6?.apply(fontSizeFactor: 0.7),
+          children: [
+            TextSpan(
+              text: 'aquí',
+              style: bebasNeueFont.headline6?.apply(
+                  decoration: TextDecoration.underline, fontSizeFactor: 0.7),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  ///campo de usuario
+  _userField(BuildContext context) {
+    return Container(
+      height: 40,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(5),
+      ),
+      child: TextFormField(
+        initialValue: _email,
+        onChanged: (value) {
+          _email = value;
+        },
+        cursorColor: Colors.black54,
+        style: Theme.of(context)
+            .textTheme
+            .headline5
+            ?.apply(color: Colors.black54, fontSizeFactor: 0.8),
+        textAlign: TextAlign.center,
+        keyboardType: TextInputType.name,
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          hintText: 'usuario',
+          hintStyle: Theme.of(context)
+              .textTheme
+              .headline5
+              ?.apply(color: Colors.black54, fontSizeFactor: 0.8),
+        ),
+      ),
+    );
+  }
+
+  ///campo de contraseña
+  _passwordField(BuildContext context) {
+    return Container(
+      height: 40,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(5),
+      ),
+      child: TextFormField(
+        initialValue: _password,
+        onChanged: (value) {
+          _password = value;
+        },
+        cursorColor: Colors.black54,
+        style: bebasNeueFont.headline5?.apply(
+          color: Colors.black54,
+          fontSizeFactor: 0.8,
+        ),
+        textAlign: TextAlign.center,
+        obscureText: true,
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          hintText: 'password',
+          hintStyle: Theme.of(context)
+              .textTheme
+              .headline5
+              ?.apply(color: Colors.black54, fontSizeFactor: 0.8),
+        ),
+      ),
+    );
+  }
+
+  _loginButton(BuildContext context) {
+    double buttonWidth = MediaQuery.of(context).size.width;
+    return Container(
+      width: buttonWidth,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          primary: ColorsApp.primaryColor,
+          elevation: 5,
+        ),
+        onPressed: () => Navigator.of(context).pushReplacementNamed(HomeScreen.route),
+         
+        child: Text(
+          'Ingresar',
+          style: bebasNeueFont.headline6,
+        ),
+      ),
+    );
   }
 }

@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 final bebasNeueFont = TextTheme(
   headline1: TextStyle(
       fontFamily: 'Bebas Neue',
-      fontSize: 96,
+      fontSize: 64,
       color: Colors.white,
       fontWeight: FontWeight.w300),
   headline2: TextStyle(
       fontFamily: 'Bebas Neue',
-      fontSize: 36,
+      fontSize: 23,
       color: Colors.white,
-      fontWeight: FontWeight.w300),
+      fontWeight: FontWeight.w800),
   headline3: TextStyle(
       fontFamily: 'Bebas Neue',
       fontSize: 48,

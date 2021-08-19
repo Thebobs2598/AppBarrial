@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(
-      Duration(seconds: 5),
+      Duration(seconds: 3),
       () => _createRoute(context),
     );
   }
@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
         pageBuilder: (context, animation, secondaryAnimation) {
           return LoginScreen();
         },
-        transitionDuration: Duration(seconds: 5),
+        transitionDuration: Duration(seconds: 2),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           // var begin = Offset(0.0, 1.0);
           // var end = Offset.zero;
@@ -74,41 +74,46 @@ class _SplashScreenState extends State<SplashScreen> {
 
 _introductionBody(Size size) {
   //Creando el Scroll
-  
+
   return Column(children: [
-    
     SizedBox(height: size.height * 0.03),
     //llamando el logo introductorio
     _logoIntro(size),
     //creando el espaciado necesario
-    SizedBox(height: size.height * 0.06),
+    SizedBox(height: size.height * 0.1),
     //llamando el logo UTPL pantalla inicial
-    
-  
-        
-    Text('app emergencias barriales'.toUpperCase(),
-        style:
-            bebasNeueFont.headline2?.apply(fontSizeFactor: size.height * 0.00065)),
+
+    Container(
+       margin: EdgeInsets.only(
+        left: size.width * 0.1,
+        right: size.width * 0.1,
+        ),
+      child: Text('app emergencias barriales'.toUpperCase(),
+          style: bebasNeueFont.headline2),
+    ),
+    SizedBox(height: size.height * 0.1),
+    //llamando el logo UTPL pantalla inicial
+
+    Container(
+      margin: EdgeInsets.only(
+        left: size.width * 0.2,
+        right: size.width * 0.2,
+        ),
+      child: Text('La mirada del lobo penetra hasta nuestra alma'.toUpperCase(),
+          style: bebasNeueFont.headline2,textAlign: TextAlign.center,),
+    ),
   ]);
 }
 
- _logoIntro(Size size) {
-    return Container(
-      //largo y ancho del logo dentro
-      
-      width: double.infinity,
-      height: size.height * 0.45,
-      child: Image(
-        width: 300,
-        height: 300,
-        image: AssetImage(
-          'assets/logos/logoAtukKuri.png',
-        ),
-        filterQuality: FilterQuality.high,
-      ),
-      padding: EdgeInsets.only(
-        top: size.height * 0.04,
-        
-      ),
-    );
-  }
+_logoIntro(Size size) {
+  return Container(
+    //largo y ancho del logo dentro
+
+    child: Image.asset('assets/logos/logoAtukKuri.png'),
+
+    margin: EdgeInsets.only(
+        left: size.width * 0.1,
+        right: size.width * 0.1,
+        top: size.height * 0.2),
+  );
+}
